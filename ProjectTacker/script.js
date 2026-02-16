@@ -178,4 +178,4 @@ function renderChart(completed, pending, overdue) {
             cutout: '70%'
         }
     });
-}
+} 

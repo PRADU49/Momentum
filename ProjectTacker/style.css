@@ -12,7 +12,7 @@
     --priority-high-bg: rgba(239, 68, 68, 0.437);
     --priority-medium-bg: rgba(245, 159, 11, 0.309);
     --priority-low-bg: rgba(16, 185, 129, 0.325);
-}
+} 
 
 * {
     margin: 0;
