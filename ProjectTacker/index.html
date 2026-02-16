@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Momentum</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-content">
+            <div class="navbar-brand">
+                Cyber Syndicate
+            </div>
+            <ul class="navbar-menu">
+                <li><a href="#">Home</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="customModal">
+        <div class="modal-content">
+            <h3 id="modalTitle">Confirm Action</h3>
+            <p id="modalMsg"></p>
+            <div class="modal-btns">
+                <button class="btn-cancel" onclick="closeModal()">Cancel</button>
+                <button class="btn-confirm" id="confirmActionBtn">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <header>
+            <div class="header-top">
+                <div>
+                    <h1>Momentum</h1>
+                    <p class="subtitle">Track your progress and never miss deadlines.</p>
+                </div>
+            </div>
+
+            <div class="header-actions">
+                <div class="search-wrapper">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchBar" class="search-bar" placeholder="Search tasks by name..."
+                        oninput="renderApp()">
+                </div>
+                <button class="btn-clear-all" onclick="confirmClearAll()">
+                    <i class="fas fa-trash-sweep"></i> Clear All
+                </button>
+            </div>
+        </header>
+
+        <div class="stats-grid">
+            <div class="card primary-border">
+                <div class="stat-label">Total</div>
+                <div class="stat-number" id="totalCount">0</div>
+            </div>
+            <div class="card success-border">
+                <div class="stat-label">Completed</div>
+                <div class="stat-number" id="completedCount">0</div>
+            </div>
+            <div class="card warning-border">
+                <div class="stat-label">Pending</div>
+                <div class="stat-number" id="pendingCount">0</div>
+            </div>
+            <div class="card danger-border">
+                <div class="stat-label">Overdue</div>
+                <div class="stat-number" id="overdueCount">0</div>
+            </div>
+        </div>
+
+        <form class="input-section" onsubmit="addTask(event)">
+            <div class="input-group">
+                <label>Task Name</label>
+                <input type="text" id="taskName" placeholder="e.g. Design UI Prototype" required>
+            </div>
+            <div class="input-group">
+                <label>Due Date</label>
+                <input type="date" id="taskDate" required>
+            </div>
+            <div class="input-group">
+                <label>Priority</label>
+                <select id="taskPriority">
+                    <option value="Low">Low</option>
+                    <option value="Medium" selected>Medium</option>
+                    <option value="High">High</option>
+                </select>
+            </div>
+            <button type="submit" class="add-btn"><i class="fas fa-plus"></i> Add Task</button>
+        </form>
+
+        <div class="content-wrapper">
+            <div class="task-list" id="taskListContainer"></div>
+            <div class="visuals">
+                <div class="progress-card">
+                    <h3>Overall Progress</h3>
+                    <div class="progress-container">
+                        <div class="progress-bar" id="progressBar"></div>
+                    </div>
+                    <h2 id="progressPercent">0%</h2>
+                    <p class="motivation-text" id="motivationText">Let's get started!</p>
+                </div>
+                <div class="progress-card chart-card">
+                    <canvas id="statusChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
