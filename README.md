@@ -172,8 +172,7 @@ This project is open-source and free to use for:
 
 # 👨‍💻 Developed By
 
-Cyber Syndicate  
-Designed for productivity and performance.
+Team of two students: 1: Pradyumna Pawar, 2: Umakant Bhadange
 
 ---
 
