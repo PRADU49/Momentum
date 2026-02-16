@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     renderApp();
 });
 
+// This function added task and save data
 function addTask(e) {
     e.preventDefault();
     const newTask = {
@@ -23,6 +24,7 @@ function addTask(e) {
     e.target.reset();
 }
 
+// This function for show status of task
 function toggleStatus(id) {
     tasks = tasks.map(t =>
         t.id === id ? { ...t, completed: !t.completed } : t
@@ -67,6 +69,7 @@ function saveAndRender() {
     renderApp();
 }
 
+// This function run whole app
 function renderApp() {
     const container = document.getElementById('taskListContainer');
     const searchTerm = document.getElementById('searchBar').value.toLowerCase();
@@ -127,6 +130,7 @@ function renderApp() {
     updateUIStats(today);
 }
 
+// This function for showing priority color
 function getPriorityColor(p) {
     return p === 'High'
         ? 'var(--danger)'
@@ -135,6 +139,7 @@ function getPriorityColor(p) {
             : 'var(--success)';
 }
 
+// This function updates total, completed, pending, overdue
 function updateUIStats(today) {
     const total = tasks.length;
     const completed = tasks.filter(t => t.completed).length;
@@ -158,6 +163,7 @@ function updateUIStats(today) {
     renderChart(completed, pending, overdue);
 }
 
+// This function shows data in chart
 function renderChart(completed, pending, overdue) {
     const ctx = document.getElementById('statusChart').getContext('2d');
     if (myChart) myChart.destroy();
