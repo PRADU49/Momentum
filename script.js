@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // This function added task and save data
 function addTask(e) {
-    e.preventDefault();
+    e.preventDefault(); 
     const newTask = {
         id: Date.now(),
         name: document.getElementById('taskName').value,
